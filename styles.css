@@ -15,7 +15,7 @@ body {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -26,20 +26,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    gap: 30px;
+    min-height: calc(100vh - 120px);
+    gap: 20px;
+    padding: 10px 0;
 }
 
 /* Visualization Container */
 .visualization-container {
     width: 90vw;
-    max-width: 1000px;
-    height: 60vh;
+    max-width: 900px;
+    height: 45vh;
     background: #1e1e2e;
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 15px;
+    padding: 20px;
     position: relative;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     border: 2px solid #8b4f6b;
     display: flex;
     align-items: center;
@@ -63,26 +64,26 @@ body {
 }
 
 .scanner-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #d67c9c;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
 .scanner-status {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #d67c9c;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 600;
 }
 
 .scanned-code {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #c77a8a;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    margin-bottom: 20px;
-    min-height: 2.5rem;
+    margin-bottom: 15px;
+    min-height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -265,13 +266,13 @@ body {
 .mission-box {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    padding: 30px 50px;
-    border-radius: 24px;
+    padding: 20px 30px;
+    border-radius: 18px;
     border: 2px solid #d67c9c;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    max-width: 1200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -281,24 +282,24 @@ body {
 }
 
 .byte-circle {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #d67c9c, #b8627a);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 6px solid #e092b0;
-    box-shadow: 0 8px 24px rgba(214, 124, 156, 0.3);
+    border: 4px solid #e092b0;
+    box-shadow: 0 6px 18px rgba(214, 124, 156, 0.3);
     transition: all 0.5s ease;
 }
 
 .byte-character {
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
     object-fit: contain;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
 }
 
 /* Byte Happy State */
@@ -321,14 +322,14 @@ body {
 .mission-text h3 {
     margin: 0;
     color: #ffffff;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .mission-text p {
-    margin: 4px 0 0 0;
+    margin: 2px 0 0 0;
     color: #e0c5d0;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     line-height: 1.3;
 }
 
@@ -424,22 +425,22 @@ body {
 /* Timer Display */
 .timer-display {
     text-align: center;
-    padding: 10px 15px;
+    padding: 8px 12px;
     background: rgba(45, 55, 72, 0.6);
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid #8b4f6b;
-    min-width: 100px;
+    min-width: 80px;
 }
 
 .timer-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #e0c5d0;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-weight: 500;
 }
 
 .timer-value {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: #d67c9c;
     font-weight: bold;
     font-family: 'Courier New', monospace;
@@ -541,5 +542,53 @@ body {
     
     .timer-value {
         font-size: 1.2rem;
+    }
+}
+
+/* Footer */
+footer {
+    margin-top: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #8b4f6b;
+}
+
+.impressum {
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.impressum p {
+    color: #e0c5d0;
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+.impressum a {
+    color: #d67c9c;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.impressum a:hover {
+    color: #e092b0;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer {
+        margin-top: 5px;
+        padding: 8px 0;
+    }
+    
+    .impressum p {
+        font-size: 0.65rem;
+        line-height: 1.2;
+    }
+    
+    .impressum a {
+        margin: 0 3px;
     }
 }
