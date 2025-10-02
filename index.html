@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <!-- Main Visualization Area -->
+            <div class="visualization-container">
+                <div class="station-content" id="barcode-station">
+                    <div class="scanner-display">
+                        <div class="scanner-text">Benutze den Scanner</div>
+                        <div class="scanner-status" id="scannerStatus">Bereit...</div>
+                        <div class="scanned-code" id="scannedCode"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mission Box -->
+            <div class="mission-box">
+                <div class="byte-companion" id="byteCompanion">
+                    <div class="byte-circle">
+                        <img class="byte-character" id="byteCharacter" src="Byte_mascot/Byte_normal.png" alt="Byte">
+                    </div>
+                </div>
+                <div class="mission-text">
+                    <h3 id="missionTitle">Erkunde das System!</h3>
+                    <p id="missionDescription">Was passiert, wenn du etwas eingibst?</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
