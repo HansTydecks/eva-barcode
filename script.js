@@ -2,6 +2,12 @@ class EVASimulator {
     constructor() {
         this.audioContext = null;
         this.isProcessing = false;
+        this.timerStarted = false;
+        this.workingTime = 180; // 3 minutes in seconds
+        this.modalTime = 180; // 3 minutes in seconds
+        this.workingTimer = null;
+        this.modalTimer = null;
+        this.firstCodeScanned = false;
         
         // Barcode scanner valid codes with corresponding G major pentatonic notes
         this.validCodes = {
@@ -64,6 +70,12 @@ class EVASimulator {
 
         document.getElementById('scannedCode').textContent = code;
         this.showScannerStatus('Erkannt!', 'success');
+
+        // Start timer after first successful scan
+        if (!this.firstCodeScanned) {
+            this.firstCodeScanned = true;
+            this.startWorkingTimer();
+        }
 
         // Play corresponding tone
         await this.playPentatonicNote(this.validCodes[code]);
@@ -130,6 +142,65 @@ class EVASimulator {
         
         companion.classList.remove('happy');
         character.src = 'Byte_mascot/Byte_normal.png';
+    }
+
+    startWorkingTimer() {
+        const timerDisplay = document.getElementById('timerDisplay');
+        const timerValue = document.getElementById('timerValue');
+        
+        timerDisplay.style.display = 'block';
+        this.timerStarted = true;
+        
+        this.workingTimer = setInterval(() => {
+            this.workingTime--;
+            const minutes = Math.floor(this.workingTime / 60);
+            const seconds = this.workingTime % 60;
+            timerValue.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (this.workingTime <= 0) {
+                clearInterval(this.workingTimer);
+                this.showModal();
+            }
+        }, 1000);
+    }
+
+    showModal() {
+        const modalOverlay = document.getElementById('modalOverlay');
+        modalOverlay.style.display = 'flex';
+        this.startModalTimer();
+    }
+
+    startModalTimer() {
+        const modalTimerValue = document.getElementById('modalTimerValue');
+        const modalTimerText = document.getElementById('modalTimerText');
+        
+        this.modalTimer = setInterval(() => {
+            this.modalTime--;
+            const minutes = Math.floor(this.modalTime / 60);
+            const seconds = this.modalTime % 60;
+            modalTimerValue.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (this.modalTime <= 0) {
+                clearInterval(this.modalTimer);
+                this.showStationChangeMessage();
+            }
+        }, 1000);
+    }
+
+    showStationChangeMessage() {
+        const modalTitle = document.getElementById('modalTitle');
+        const modalTimerValue = document.getElementById('modalTimerValue');
+        const modalTimerText = document.getElementById('modalTimerText');
+        
+        modalTitle.textContent = 'Wechsle die Station!';
+        modalTimerValue.textContent = 'F5';
+        modalTimerText.textContent = 'drücken um diese Station zu starten';
+    }
+
+    formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
 }
 
